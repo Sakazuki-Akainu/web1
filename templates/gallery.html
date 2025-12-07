@@ -4,13 +4,42 @@
     <meta charset="UTF-8">
     <title>Welcome to the Gallery</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Adding some style for the gallery itself -->
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
     <div class="gallery-container">
         <h1>Welcome, {{ username }}!</h1>
-        <p>This is where your beautiful art will be displayed.</p>
-        <!-- You would add your image tags here -->
+        <p>This is your art collection, managed from Telegram.</p>
         <a href="/logout">Logout</a>
+
+        <hr style="margin: 2rem 0;">
+
+        <!-- This is the new dynamic part -->
+        <div class="gallery-grid">
+            {% if images %}
+                {% for image_filename in images %}
+                    <img src="{{ url_for('static', filename='uploads/' + image_filename) }}" alt="Art piece">
+                {% endfor %}
+            {% else %}
+                <p>The gallery is empty. Send a photo to your bot to add art!</p>
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>
+
