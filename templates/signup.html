@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <form action="/signup" method="post">
+            <h2>Create an Account</h2>
+            <p>Sign up to request access to the gallery.</p>
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="/">Login here</a>.</p>
+    </div>
+</body>
+</html>
