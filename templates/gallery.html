@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the Gallery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="gallery-container">
+        <h1>Welcome, {{ username }}!</h1>
+        <p>This is where your beautiful art will be displayed.</p>
+        <!-- You would add your image tags here -->
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>
