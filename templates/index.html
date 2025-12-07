@@ -10,15 +10,23 @@
         <form action="/login" method="post">
             <h2>My Art Gallery</h2>
             <p>Please log in to view the collection.</p>
+            
+            <!-- This is where the error message from Flask will appear -->
             {% if error %}
                 <p class="error">{{ error }}</p>
             {% endif %}
+            
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
+            
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
+            
             <button type="submit">Login</button>
         </form>
+        
+        <!-- Link to the sign-up page -->
+        <p>Don't have an account? <a href="/signup">Sign up here</a>.</p>
     </div>
 </body>
 </html>
